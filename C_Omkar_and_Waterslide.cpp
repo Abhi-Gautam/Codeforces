@@ -89,19 +89,16 @@ int main()
     fast
     test
     {
-        int64 l, r, m;
-        in3(l, r, m)
-        int64 a, b, c;
-        for(a = l; a <= r; a++)
+        int n;
+        cin>>n;
+        VI v(n);
+        inar(n, v)
+        int64 ans = 0;
+        rep(i, n-1)
         {
-            int64 z = m%a;
-            if(z != m && z <= r-l) {cout<<a<<" "<<r<<" "<<r-z<<endl; break;}
-            else if(a-z <= r-l)
-            {
-                cout << a << " " << l << " " << l+a-z << endl;
-                break;
-            }
+            if(v[i] > v[i+1])  ans += v[i] - v[i+1];
         }
+        cout<<ans<<endl;
     }
     return 0;
 }

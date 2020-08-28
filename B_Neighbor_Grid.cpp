@@ -89,19 +89,35 @@ int main()
     fast
     test
     {
-        int64 l, r, m;
-        in3(l, r, m)
-        int64 a, b, c;
-        for(a = l; a <= r; a++)
-        {
-            int64 z = m%a;
-            if(z != m && z <= r-l) {cout<<a<<" "<<r<<" "<<r-z<<endl; break;}
-            else if(a-z <= r-l)
+        int n, m;
+        in2(n, m)
+        int a[n][m];
+        int neighbor[n][m];
+        bool ans = true;
+        rep(i, n) rep(j, m) cin>>a[i][j];
+        rep(i, n) rep(j, m) neighbor[i][j] = 4;
+        rep(i, n){
+            rep(j, m)
             {
-                cout << a << " " << l << " " << l+a-z << endl;
-                break;
+                if(i == 0 || i == n-1) neighbor[i][j]--;
+                if(j == 0 || j == m-1) neighbor[i][j]--;
+                if(neighbor[i][j] < a[i][j]){
+                    ans = false;
+                }
             }
         }
+        if(ans){
+            cout<<"YES"<<endl;
+            rep(i, n)
+            {
+                rep(j, m)
+                {
+                    cout<<neighbor[i][j]<<" ";
+                }
+                cout<<endl;
+            }
+        }
+        else cout<<"NO"<<endl;
     }
     return 0;
 }
