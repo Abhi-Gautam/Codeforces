@@ -2,6 +2,8 @@
     "competitive-programming-helper.firstTime": false,
     "files.associations": {
         "iomanip": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "chrono": "cpp",
+        "cmath": "cpp"
     }
 }
