@@ -5,6 +5,18 @@
         "algorithm": "cpp",
         "chrono": "cpp",
         "cmath": "cpp",
-        "bitset": "cpp"
+        "bitset": "cpp",
+        "any": "cpp",
+        "array": "cpp",
+        "functional": "cpp",
+        "istream": "cpp",
+        "memory_resource": "cpp",
+        "ostream": "cpp",
+        "ratio": "cpp",
+        "scoped_allocator": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp",
+        "variant": "cpp"
     }
 }
