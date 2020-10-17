@@ -93,30 +93,84 @@ typedef unsigned long long int uint64;
 int main()
 {
     fast
-    int n;
-    cin>>n;
-    VI v(n);
-    inar(n, v)
-    bool seen[105];
-    rep(i, 105) seen[i] = false;
-    int cnt, sol = 0;
-    sort(all(v));
-    for(int i = 0; i < n; i++)
+    test
     {
-        if(seen[i]) continue;
-        cnt = 1;
-        sol++;
+        int n; string s;
+        in2(n, s)
 
-        for(int j = i+1; j < n; j++)
+        bool issame = true;
+        rep(i, n-1) if(s[i] != s[i+1]) issame = false;
+        if(issame)
         {
-            if(seen[j]) continue;
-            if(v[j] >= cnt)
+            cout<<n<<endl;
+            continue;
+        }
+        else
+        {
+            bool onesignclk = true;
+            rep(i, n) if(s[i] == '>') onesignclk = false;
+            bool onesignant = true;
+            rep(i, n) if(s[i] == '<') onesignant = false;
+            if(onesignclk || onesignant)
             {
-                seen[j] = true;
-                cnt++;
+                cout<<n<<endl;
+                continue;
             }
         }
+        int ans = 0;
+        rep(i, n-1)
+        {
+            if(s.substr(i, 2) == ">>" || s.substr(i, 2) == "<<" || s.substr(i, 2) == "<>" || s.substr(i, 2) == "><")
+            {
+                continue;
+            }
+            else ans++;
+        }
+        if(s[0] == '-' || s[n-1] == '-')    ans++;
+        cout<<ans<<endl;
+        // if(n == 2)
+        // {
+        //     if(s == "<>" || s == "><")
+        //     {
+        //         cout<<"0"<<endl;
+        //     }
+        //     else cout<<"2"<<endl;
+        //     continue;
+        // }
+        // else
+        // {
+        //     bool issame = true;
+        //     rep(i, n-1) if(s[i] != s[i+1]) issame = false;
+        //     if(issame)
+        //     {
+        //         cout<<n<<endl;
+        //         continue;
+        //     }
+        //     else
+        //     {
+        //         bool onesignclk = true;
+        //         rep(i, n) if(s[i] == '>') onesignclk = false;
+        //         bool onesignant = true;
+        //         rep(i, n) if(s[i] == '<') onesignant = false;
+        //         if(onesignclk || onesignant)
+        //         {
+        //             cout<<n<<endl;
+        //             continue;
+        //         }
+        //         int count = 0;
+        //         nloop(i, 1, n-1, 1)
+        //         {
+        //             if(s[i] == '-') count++;
+        //         }
+        //         count *=2;
+        //         if(count == 0 )
+        //         else if(s[0] == '-' || s[n-1] == '-') count++;
+
+        //         cout<<count<<endl;
+        //     }
+
+        // }
+
     }
-    cout<<sol<<endl;
     return 0;
 }

@@ -93,30 +93,18 @@ typedef unsigned long long int uint64;
 int main()
 {
     fast
-    int n;
-    cin>>n;
-    VI v(n);
-    inar(n, v)
-    bool seen[105];
-    rep(i, 105) seen[i] = false;
-    int cnt, sol = 0;
-    sort(all(v));
-    for(int i = 0; i < n; i++)
+    test
     {
-        if(seen[i]) continue;
-        cnt = 1;
-        sol++;
-
-        for(int j = i+1; j < n; j++)
+        int64 x1, y1, x2, y2;
+        in2(x1, y1); in2(x2, y2);
+        if(x1-x2 == 0 || y1-y2 == 0)
         {
-            if(seen[j]) continue;
-            if(v[j] >= cnt)
-            {
-                seen[j] = true;
-                cnt++;
-            }
+            cout<<abs(x1-x2) + abs(y1-y2)<<endl;
+        }
+        else
+        {
+            cout << abs(x1 - x2) + abs(y1 - y2) + 2 << endl;
         }
     }
-    cout<<sol<<endl;
     return 0;
 }
