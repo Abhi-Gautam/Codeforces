@@ -95,6 +95,15 @@ int main()
     fast
     test
     {
+        in(n);
+        VI v(n);
+        inar(n, v);
+        MPII mp;
+        rep(i, n) mp[v[i]]++;
+        bool ok = false;
+        for(auto i : mp) if(i.second >= 2) ok = true;
+        if(ok) cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
     }
     return 0;
 }
