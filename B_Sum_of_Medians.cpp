@@ -90,39 +90,32 @@ typedef unsigned long int uint32;
 typedef long long int int64;
 typedef unsigned long long int uint64;
 
-int n, c0, c1, h;
-
-int64 calcPrice(string s, int co, int ci)
-{
-    int64 price = 0;
-    rep(i, s.length())
-    {
-        if(s[i] == '0') price+=co;
-        else price+=ci;
-    }
-    return price;
-}
-
 int main()
 {
     fast
     test
     {
-        cin>>n>>c0>>c1>>h;
-        string s;
-        cin>>s;
+        int n, k;
+        in2(n, k)
+        int x = round(1.0*n/2);
+        x = n-x;
+        int y = n*k;
+        VI v(y);
+        inar(y, v);
+        y--;
         int64 ans = 0;
-        if(c0 + h < c1)
+        y-= x;
+        // for(int i = y; y>=0; y-=(x+1))
+        // {
+
+        //     ans+=v[i];
+
+        // }
+        while(k--)
         {
-            ans = calcPrice(s, c0, c0+h);
-        }
-        else if(c1 + h < c0)
-        {
-            ans = calcPrice(s, c1+h, c1);
-        }
-        else
-        {
-            ans = calcPrice(s, c0, c1);
+            // cout<<v[y]<<" ";
+            ans+=v[y];
+            y-=(x+1);
         }
         cout<<ans<<endl;
     }
